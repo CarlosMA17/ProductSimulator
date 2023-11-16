@@ -4,16 +4,16 @@ import java.util.List;
 
 public class Farm {
     private List<Vegetable> warehouse = new ArrayList<>();
-    private int maxCapacity;
+    private final int MAX_CAPACITY;
 
 
     public Farm(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
+        this.MAX_CAPACITY = 15;
     }
 
 
     public synchronized void plantVegetable(String farmerName, String vegetableName) {
-        while (warehouse.size() >= maxCapacity) {
+        while (warehouse.size() >= MAX_CAPACITY) {
             try {
                 wait();
             } catch (InterruptedException e) {
