@@ -26,7 +26,8 @@ public class Farm {
         warehouse.add(vegetable);
 
         System.out.println("el huerto tiene " + warehouse.size() + " cosas plantadas");
-        notify(); //
+        System.out.println("el productor " + farmerName + " planto " + vegetableName);
+        notifyAll(); //
     }
 
     public synchronized Vegetable harvestVegetable(String consumerName) {
@@ -40,7 +41,10 @@ public class Farm {
         }
         Vegetable vegetable = warehouse.remove(0);
 
-        notify();
+        System.out.println(consumerName + " ha consumido " + vegetable.getName()
+            + " de " + vegetable.getFarmer() + ",\nEl huerto tiene " + warehouse.size() + " cosas plantadas");
+
+        notifyAll();
 
         return vegetable;
     }
