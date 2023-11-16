@@ -1,6 +1,6 @@
 package com.modules;
 
-public class Producer {
+public class Producer implements Runnable{
     private String name;
     private int vegetablesToPlant;
     private Farm farm;
@@ -12,9 +12,8 @@ public class Producer {
         this.vegetablesToPlant = vegetablesToPlant;
         this.farm = farm;
     }
-
+    @Override
     public void run() {
-
 
         for (int i = 0; i < vegetablesToPlant; i++) {
             String vegetableName = vegetableTypes[(int) (Math.random() * vegetableTypes.length)];
